@@ -91,9 +91,4 @@ Este projeto foi desenvolvido com fins educacionais para praticar conceitos de p
 
 Projeto desenvolvido durante as aulas do curso MaisTI com o objetivo de aplicar conceitos de desenvolvimento de software, persistência de dados e organização de sistemas utilizando JavaScript e banco de dados relacional.
 
----
-
-## 👨‍💻 Autor
-
-Desenvolvido para fins acadêmicos e de aprendizado em desenvolvimento de software.
 
