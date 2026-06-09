@@ -27,4 +27,8 @@ db.exec(`
     FOREIGN KEY (idCompanhia) REFERENCES Companhia(idCompanhia)
     );
 
+    INSERT INTO companhia VALUES(NULL,'Gol',2000);
+
     `); //SQL CRIAÇÃO DA TABELA
+
+    module.exports = db;

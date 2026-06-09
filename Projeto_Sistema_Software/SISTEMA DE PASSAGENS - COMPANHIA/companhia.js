@@ -8,21 +8,21 @@ const db = require('./database');
 function pausar() {
     // pausa a execucao e limpa a tela
     console.log("\n-------------------------------------------");
-    prompt("Precione ENTER para continuar...");
+    prompt("Pressione ENTER para continuar...");
     console.clear();
 }
 
-function listarCompanhias() {
+function listarCompanhias(callback) {
     // busca todas as companhias no banco e exibe no terminal
     // retorna o array de companhias
-    console.log("\n======= ✈️  COMPANHIAS =======");
-    if(this.companhias.length === 0 ){
-        console.log("\nNenhuma companhia cadastrada.");
-    }else{
-        this.companhias.forEach((companhia,index) => {
-            console.log(`[${index}] ${companhia.nome}`);
-        });
-    }
+    const query = `SELECT * FROM companhia`;
+    db.all(query, [], (err, rows) => {
+        if(err){
+            console.error("Erro ao buscar companhia");
+        }
+        console.log("\n=== LISTA DE COMPANHIAS ===");
+        console.table(rows)
+    })
 }
 
 function validarOuCadastrarCompanhia(idInformado) {
@@ -42,9 +42,6 @@ function cadastrarTrecho(idCompanhia, origem, destino, valor) {
     // pede origem, destino, valor e numero de passagens
     // insere o trecho no banco
     this.listarCompanhias;
-    if(this.companhias[idCompanhia]){
-       
-    }
 
 }
 
