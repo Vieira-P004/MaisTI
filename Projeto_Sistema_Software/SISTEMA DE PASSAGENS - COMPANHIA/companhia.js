@@ -12,17 +12,14 @@ function pausar() {
     console.clear();
 }
 
-function listarCompanhias(callback) {
+function listarCompanhias() {
     // busca todas as companhias no banco e exibe no terminal
     // retorna o array de companhias
-    const query = `SELECT * FROM companhia`;
-    db.all(query, [], (err, rows) => {
-        if(err){
-            console.error("Erro ao buscar companhia");
-        }
-        console.log("\n=== LISTA DE COMPANHIAS ===");
-        console.table(rows)
-    })
+    const resultado = db.prepare('SELECT * FROM Companhia').all(); //bucando todos os registros
+
+    for(let i = 0; i < resultado.length;i++){
+      return console.log(resultado[i].nome)
+    }
 }
 
 function validarOuCadastrarCompanhia(idInformado) {
@@ -30,18 +27,43 @@ function validarOuCadastrarCompanhia(idInformado) {
     // se nao existir, pergunta se o usuario quer cadastrar uma nova
     // se sim, pede nome e ano de fundacao e insere no banco
     // retorna o id valido ou null se o usuario optar por nao cadastrar
+    const Companhia = db.prepare('SELECT * FROM Companhia WHERE id = ?').get(idInformado);
+
+    if(Companhia){
+        return idInformado; 
+    }
+
+    console.log("\nNenhuma companhia cadastrada com esse ID.");
+    const opcaoCadastro = prompt("Deseja cadastrar nova companhia? (1 = Sim ou 0 = Não)");
+
+    if(opcaoCadastro != 1){
+    return null;            
+    }
+
+    let nome = prompt("Digite o nome da companhia: ");
+    let anoFundacao = parent(prompt("Digite o ano de fundação da companhia: "));
+
+    const cadastrarCompanhia = db.prepare(`INSERT INTO Companhia (nome, anoFundacao) VALUES(?, ?)`).run(nome, anoFundacao);
+    console.log(cadastrarCompanhia.lastInsertRowid);
+    console.log(cadastrarCompanhia.changes);
+
+    console.log("Companhia cadastrada com sucesso!");
+    return cadastrarCompanhia.lastInsertRowid;
 }
 
 // -------------------------------------------
 // FUNÇÕES DE TRECHOS
 // -------------------------------------------
 
-function cadastrarTrecho(idCompanhia, origem, destino, valor) {
+function cadastrarTrecho() {
     // lista as companhias, pede o id da companhia
     // valida ou cadastra a companhia
     // pede origem, destino, valor e numero de passagens
     // insere o trecho no banco
-    this.listarCompanhias;
+    const listarPorID = db.prepare(`INSERT INTO Companhia () VALUES (?, ?) `);
+    validarOuCadastrarCompanhia();
+
+
 
 }
 
@@ -101,6 +123,7 @@ console.clear();
 console.log('\n===========================================');
 console.log('   SISTEMA DE PASSAGENS - COMPANHIA        ');
 console.log('===========================================');
+listarCompanhias();
 
 while (opcao !== 0) {
     console.log('\n---- MENU ----');
@@ -122,7 +145,10 @@ while (opcao !== 0) {
             const opcaoTrecho = parseInt(prompt('Escolha: '));
 
             switch (opcaoTrecho) {
-                case 1: cadastrarTrecho(); break;
+                case 1:
+                    let idInformado = parseInt("Informe o Id: ");
+                     cadastrarTrecho(); 
+                break;
                 case 2: listarTrechos(); break;
                 case 3: editarTrecho(); break;
                 case 4: excluirTrecho(); break;
