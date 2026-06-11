@@ -60,11 +60,18 @@ function cadastrarTrecho() {
     // valida ou cadastra a companhia
     // pede origem, destino, valor e numero de passagens
     // insere o trecho no banco
-    const listarPorID = db.prepare(`INSERT INTO Companhia () VALUES (?, ?) `);
+    const listarPorID = db.prepare(`SELEC * FROM Companhia WHERE `);
     validarOuCadastrarCompanhia();
+    
+    console.log('\n===========================================');
+    console.log('             CADASTRANDO TRECHO             ');
+    console.log('===========================================');
+    const origem = prompt("Lugar de origem: ");
+    const destino = prompt("Lugar de destino: ");
+    const valor = prompt("Valor da passagem");
+    const numeorPassagens = Number(prompt("Indorme quantidade de passagens: "));
 
-
-
+    const inserirTrecho = db.prepare(`INSERT INTO trecho (origem, destino, valor, numPassagens ) VALUES (?, ?, ?, ?)`).run(origem, destino, valor, numeorPassagens)
 }
 
 function listarTrechos() {
