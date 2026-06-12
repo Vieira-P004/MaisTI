@@ -15,11 +15,13 @@ function pausar() {
 function listarCompanhias() {
     // busca todas as companhias no banco e exibe no terminal
     // retorna o array de companhias
-    const resultado = db.prepare('SELECT * FROM Companhia').all(); //bucando todos os registros
+    const companhias = db.prepare('SELECT * FROM Companhia').all(); //bucando todos os registros
 
-    for(let i = 0; i < resultado.length;i++){
-      return console.log(resultado[i].nome)
+    for(let i = 0; i < companhias.length;i++){
+      return console.log(`[${companhias[i]}] ${companhias[i].nome}`)
     }
+
+    return companhias;
 }
 
 function validarOuCadastrarCompanhia(idInformado) {
@@ -60,36 +62,90 @@ function cadastrarTrecho() {
     // valida ou cadastra a companhia
     // pede origem, destino, valor e numero de passagens
     // insere o trecho no banco
-    const listarPorID = db.prepare(`SELEC * FROM Companhia WHERE `);
-    validarOuCadastrarCompanhia();
+    listarCompanhias();
+    const idCompanhia = parseInt(prompt('\nID da companhia responsável pelo trecho: '))
+    const idValido = validarOuCadastrarCompanhia(idCompanhia);
+
+    if(idValido === null){
+        return null;
+    }
     
     console.log('\n===========================================');
     console.log('             CADASTRANDO TRECHO             ');
     console.log('===========================================');
     const origem = prompt("Lugar de origem: ");
     const destino = prompt("Lugar de destino: ");
-    const valor = prompt("Valor da passagem");
-    const numeorPassagens = Number(prompt("Indorme quantidade de passagens: "));
+    const valor = parseFloat(prompt("Valor do trecho: R$ "));
+    const numeroPassagens = parseInt(prompt("Número de passagens: "));
 
-    const inserirTrecho = db.prepare(`INSERT INTO trecho (origem, destino, valor, numPassagens ) VALUES (?, ?, ?, ?)`).run(origem, destino, valor, numeorPassagens)
+    db.prepare(`INSERT INTO trecho (idCompanhia, origem, destino, valor, numPassagens ) VALUES (?, ?, ?, ?, ?)`).run(idCompanhia, origem, destino, valor, numeroPassagens)
+
+    console.log('\nTrecho cadastrado com sucesso!')
 }
 
 function listarTrechos() {
     // busca todos os trechos com JOIN na tabela Companhia
     // exibe os dados de cada trecho no terminal
+    const trecho = db.prepare(`SELECT trecho. * , Companhia.nome AS nomeCompanhia
+        FROM trecho
+        JOIN companhia ON trecho.idCompanhia = companhia.id `).all();
+
+    if(trecho.length === 0){
+        console.log('\nNenhum trecho cadastrado.')
+        return;
+    }    
+
     console.log("\n======= 🗺️  TRECHOS =======");
+    for(let i = 0; i< trecho.length; i++){
+        const trechos = trecho[i];
+        console.log(`\n[${trechos.id}] ${trechos.origem} -> ${trechos.destino}`);
+        console.log(`Companhia: ${trechos.nomeCompanhia}`);
+        console.log(`Valor: R$ ${trechos.valor.toFixed(2)}`);
+        console.log(`Passagens disponiveís: ${trechos.numeroPassagens}`);
+        console.log('-------------------------------------------------');
+        
+    }
+
 }
 
 function editarTrecho() {
     // lista os trechos, pede o id do trecho a editar
     // verifica se o trecho existe
     // pede os novos dados e atualiza no banco
+    listarTrechos();
+    const idTrecho = parseInt(prompt('\nID do trecho para editar: '));
+    const trecho = db.prepare('SELECT * FROM trecho WHERE id = ?').get(idTrecho);
+
+    if(!trecho){
+        console.log('\nErro: Trecho não encontrado.');
+        return;
+    }
+
+    const novaOrigem = prompt('Nova origem: ');
+    const novoDestino = prompt('Novo destino: ');
+    const novoValor = parseFloat(prompt('Novo valor: R$'));
+    const novoNumeroPassagens = parseInt(prompt('Novo número de passagens: '));
+
+    db.prepare('UPDATE trecho SET origem = ?, destino = ?, valor = ?, numeroPassagens = ? WHERE id = ?').run(novaOrigem, novoDestino, novoValor,novoNumeroPassagens, idTrecho);
+
+    console.log('\nTrecho atualizado com sucesso!');
 }
 
 function excluirTrecho() {
     // lista os trechos, pede o id do trecho a excluir
     // verifica se o trecho existe
     // remove do banco
+    listarTrechos();
+    const idTrecho = parseInt(prompt('\nID do trecho para excluir: '));
+    const trecho = db.prepare('SELECT * FROM trecho WHERE id = ?').get(idTrecho);
+
+    if(!trecho){
+        console.log('\nErro: Trecho não encontrado.');
+        return;
+    }
+
+    db.prepare('DELETE FROM trecho WHERE id = ?').run(idTrecho);
+    console.log('\nTrecho removido com sucesso!');
 }
 
 // -------------------------------------------
@@ -101,11 +157,27 @@ function cadastrarCupom() {
     // valida ou cadastra a companhia
     // pede codigo, percentual de desconto e numero de cupons
     // insere o cupom no banco
+    listarCompanhias();
+    const idCompanhia = parseInt(prompt('\nID da companhia responsável pelo cupom: '));
+    const idValido = validarOuCadastrarCompanhia(idCompanhia);
+
+    if(idValido === null){
+        return;
+    }
+
+    const codigo = prompt('Codigo do cupom(ex: VIAGEM10): ').toUpperCase();
+    const percentualDesconto = parseFloat(prompt('Percentual de desconto (ex.: 10 para 10%):'));
+    const numeroCupons = parseInt(prompt('Número de cupons disponiveis: '));
+
+    db.prepare('INSERT INTO (idCompanhia, codigo, percentualDesconto, numeroCupons) VALUES(?, ?, ?, ?)').all(idValido, codigo, percentualDesconto, numeroCupons);
+
+    console.log('\nCupom cadastrado com sucesso!');
 }
 
 function listarCupons() {
     // busca todos os cupons com JOIN na tabela Companhia
     // exibe os dados de cada cupom no terminal
+    
 }
 
 function editarCupom() {
@@ -191,4 +263,4 @@ while (opcao !== 0) {
             pausar();
             break;
     }
-}
+}nomeCompanhia

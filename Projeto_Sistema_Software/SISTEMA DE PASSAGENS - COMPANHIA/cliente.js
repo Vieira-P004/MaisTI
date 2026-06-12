@@ -7,6 +7,9 @@ const db = require('./database');
 
 function pausar() {
     // pausa a execucao e limpa a tela
+    console.log("\n-------------------------------------------");
+    prompt("Pressione ENTER para continuar...");
+    console.clear();
 }
 
 // -------------------------------------------
@@ -17,6 +20,14 @@ function listarTodosOsTrechos() {
     // busca os trechos com numeroPassagens > 0
     // faz JOIN com Companhia para exibir o nome
     // exibe no terminal
+    const trechos = db.prepare('SELECT * FROM trecho').all();
+
+    for(let i = 0; i < trechos.length; i++){
+        console.log(`[${trechos[i]}] ${trechos[i].nome}`);
+    }
+
+    const companhia = db.prepare(`SELECT companhia.* FROM trecho
+        JOIN companhia ON trecho.idCompahnia = companhia.id `).all();
 }
 
 function listarTrechosPorCompanhia() {
