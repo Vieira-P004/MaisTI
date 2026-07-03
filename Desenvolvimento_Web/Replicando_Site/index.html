@@ -4,62 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Café Dev</title>
-    <style>
-        *{
-            margin: 0;
-        }
-
-        hr{
-            color: azure;
-        }
-
-        h1{
-            padding: 10px;
-        }
-        body{
-            background-color: #C0977D;
-            font-family: sans-serif;
-        }
-        header{
-            text-align: center;
-            background-color: #63442D;
-            margin-bottom: 20px;
-            height: 180px;
-            color: aliceblue;
-        }
-        footer{
-            color: aliceblue;
-            text-align: center;
-            background-color: #63442D;
-            margin-top: 20px;
-            height: 70px;
-            padding: 30px;
-        }
-        main{
-            background-color: #a56346;
-            width: 500px;
-            margin: auto;
-            border-radius: 5px;
-            padding: 55px;
-            color: aliceblue;
-        }
-        h2{
-            padding: 10px;
-        }
-
-        img{
-            width: 500px;
-            border-radius: 8px;
-        }
-        
-        nav ul{
-            list-style: none;
-            display: flex;
-            font-weight: bolder;
-            font-size: large;
-            padding-top: 10px;
-        }
-    </style>
+    
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
     <header>
@@ -69,17 +15,17 @@
 
         <nav>
             <ul>
-                <li>Inicio</li>
-                <li>Menu</li>
-                <li>Contato</li>
+                <li> <a href="#inicio">Inicio</a></li>
+                <li> <a href="/pagina/menu.html">Menu</a></li>
+                <li><a href="/pagina/contato.html">Contato</a></li>
             </ul>
         </nav>
         
     </header>
    
-        <main>
+        <main id="mainIndex">
 
-            <section>
+            <section id="inicio">
             <h2>Nossa Proposta</h2>
             <p>O Café Dev é um espaço projetado especialmente para desenvolvedores, estudantes e entusiastas da tecnologia. Aqui você encontra internet de alta velocidade, tomadas em todas as mesas e, claro, cafés especiais criados para aumentar sua produtividade.</p>
             </section>
