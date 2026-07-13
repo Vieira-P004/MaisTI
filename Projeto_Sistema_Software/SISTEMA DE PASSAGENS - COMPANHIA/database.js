@@ -11,7 +11,7 @@ db.exec(`
     CREATE TABLE IF NOT EXISTS trecho(
     idTrecho INTEGER PRIMARY KEY AUTOINCREMENT,
     idCompanhia INTEGER,
-    origem TEXT NOT NULL,
+    origem   TEXT NOT NULL,
     destino TEXT NOT NULL,
     valor REAL NOT NULL,
     numPassagens INTEGER NOT NULL,
