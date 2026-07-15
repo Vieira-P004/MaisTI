@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Companhia - Editar</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../public/css/app.css">
+</head>
+<body class="admin-panel-theme">
+    <main class="page-wrap">
+        <header class="hero">
+            <h1>Companhia - Editar</h1>
+            <p>Atualizacao de dados de uma companhia cadastrada.</p>
+            <a class="hero-corner-link" href="index.html">Logout</a>
+        </header>
+
+
+        <section class="card-panel form-shell">
+            <h2>Selecionar companhia</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <label for="idCompanhia">ID da companhia</label>
+                    <input id="idCompanhia" class="form-control" type="number" placeholder="Ex: 1" readonly>
+                </div>
+            </div>
+        </section>
+
+        <section class="card-panel form-shell">
+            <h2>Novos dados</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="nome">Nome da companhia</label>
+                    <input id="nome" class="form-control" type="text" placeholder="Aero Sul" readonly>
+                </div>
+                <div class="col-md-6">
+                    <label for="website">Website</label>
+                    <input id="website" class="form-control" type="url" placeholder="https://www.aerosul.com.br" readonly>
+                </div>
+                <div class="col-md-4">
+                    <label for="fundacao">Ano de fundacao</label>
+                    <input id="fundacao" class="form-control" type="number" placeholder="1998" readonly>
+                </div>
+            </div>
+            <div class="status-box status-ok mt-3">Companhia atualizada com sucesso. (mensagem de exemplo)</div>
+        </section>
+
+        <section class="card-panel">
+            <div class="action-links">
+                <a href="companhia-listar.html">Ver lista de companhias</a>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

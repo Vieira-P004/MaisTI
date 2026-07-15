@@ -1,0 +1,202 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    line-height: 1.4;
+}
+
+.page-wrap {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 16px;
+}
+
+.hero {
+    position: relative;
+    border: 1px solid #ccc;
+    padding: 16px;
+    margin-bottom: 16px;
+}
+
+.hero h1 {
+    margin: 0 0 8px;
+}
+
+.hero p {
+    margin: 0;
+}
+
+.hero-corner-link {
+    position: absolute;
+    right: 12px;
+    bottom: 12px;
+}
+
+.card-panel {
+    border: 1px solid #ccc;
+    padding: 12px;
+    margin-bottom: 12px;
+}
+
+.form-shell label {
+    display: block;
+    margin-bottom: 4px;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.col-12,
+.col-md-4,
+.col-md-5,
+.col-md-6 {
+    flex: 1 1 220px;
+}
+
+.form-control,
+.form-select {
+    width: 100%;
+    padding: 6px 8px;
+}
+
+.filter-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 10px;
+}
+
+.hint {
+    font-size: 0.92rem;
+}
+
+.mt-3 {
+    margin-top: 12px;
+}
+
+.mb-0 {
+    margin-bottom: 0;
+}
+
+.fw-semibold {
+    font-weight: 600;
+}
+
+.text-danger {
+    color: #b00020;
+}
+
+.table-responsive {
+    overflow-x: auto;
+}
+
+table,
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    border: 1px solid #ccc;
+    padding: 6px 8px;
+    vertical-align: top;
+}
+
+.action-links,
+.admin-top-menu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.action-links a,
+.admin-top-menu a,
+.action-links button,
+.btn {
+    display: inline-block;
+    border: 1px solid #999;
+    background: #f4f4f4;
+    color: #111;
+    text-decoration: none;
+    padding: 6px 10px;
+    cursor: pointer;
+}
+
+.confirm-delete-btn {
+    background: #7f1d1d;
+    border-color: #7f1d1d;
+    color: #fff;
+}
+
+.entity-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.entity-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    border: 1px solid #ccc;
+    padding: 8px;
+}
+
+.entity-actions {
+    display: flex;
+    gap: 6px;
+}
+
+.icon-action {
+    min-width: 34px;
+    text-align: center;
+}
+
+.entity-title {
+    font-weight: 600;
+}
+
+.admin-hub-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 10px;
+}
+
+.admin-hub-btn {
+    border: 1px solid #ccc;
+    padding: 16px;
+    text-align: center;
+    text-decoration: none;
+    color: inherit;
+}
+
+.status-box {
+    border: 1px solid #ccc;
+    padding: 8px;
+}
+
+.coupon-details summary {
+    cursor: pointer;
+}
+
+.coupon-box {
+    margin-top: 6px;
+}
+
+@media (max-width: 760px) {
+    .hero-corner-link {
+        position: static;
+        display: inline-block;
+        margin-top: 10px;
+    }
+
+    .entity-row {
+        flex-direction: column;
+    }
+}

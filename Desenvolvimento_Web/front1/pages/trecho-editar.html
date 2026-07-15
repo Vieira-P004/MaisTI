@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trechos - Editar</title>
+</head>
+<body>
+    <main>
+        <header>
+            <h1>Trechos - Editar</h1>
+            <p>Atualizacao de dados de um trecho existente.</p>
+            <a href="index.html">Logout</a>
+        </header>
+
+
+        <section>
+            <h2>Selecionar trecho</h2>
+            <div>
+                <div>
+                    <label for="idTrecho">ID do trecho</label>
+                    <input id="idTrecho" type="number" placeholder="Ex: 1" readonly>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Novos dados</h2>
+            <div>
+                <div>
+                    <label for="origem">Origem</label>
+                    <input id="origem" type="text" placeholder="Porto Alegre" readonly>
+                </div>
+                <div>
+                    <label for="destino">Destino</label>
+                    <input id="destino" type="text" placeholder="Curitiba" readonly>
+                </div>
+                <div>
+                    <label for="valor">Valor</label>
+                    <input id="valor" type="number" step="0.01" placeholder="349.90" readonly>
+                </div>
+                <div>
+                    <label for="passagens">Numero de passagens</label>
+                    <input id="passagens" type="number" placeholder="20" readonly>
+                </div>
+            </div>
+            <div>Trecho atualizado com sucesso. (mensagem de exemplo)</div>
+        </section>
+
+        <section>
+            <div>
+                <a href="trecho-listar.html">Ver lista de trechos</a>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

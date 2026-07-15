@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Companhia - Cadastrar</title>
+</head>
+<body>
+    <main>
+        <header>
+            <h1>Companhia - Cadastrar</h1>
+            <p>Formulario para cadastro de nova companhia no sistema administrativo.</p>
+            <a href="index.html">Logout</a>
+        </header>
+
+        <section>
+            <h2>Nova companhia</h2>
+            <div>
+                <div>
+                    <label for="nome">Nome da companhia</label>
+                    <input id="nome" type="text" placeholder="Ex: Aero Sul" readonly>
+                </div>
+                <div>
+                    <label for="website">Website</label>
+                    <input id="website" type="url" placeholder="https://www.aerosul.com.br" readonly>
+                </div>
+                <div>
+                    <label for="fundacao">Ano de fundacao</label>
+                    <input id="fundacao" type="number" placeholder="1998" readonly>
+                </div>
+            </div>
+            <p>Tela estatica para demonstracao. A persistencia real sera conectada na camada de backend.</p>
+            <div>
+                <a href="companhia-listar.html">Cancelar</a>
+                <a href="companhia-listar.html">Salvar (mock)</a>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

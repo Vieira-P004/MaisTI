@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cupons - Cadastrar</title>
+    <link rel="stylesheet" href="../public/css/app.css">
+</head>
+<body class="admin-panel-theme">
+    <main class="page-wrap">
+        <header class="hero">
+            <h1>Cupons - Cadastrar</h1>
+            <p>Informa companhia, codigo, percentual e quantidade de cupons disponiveis.</p>
+            <a class="hero-corner-link" href="index.html">Logout</a>
+        </header>
+
+
+        <section class="card-panel form-shell">
+            <h2>Novo cupom</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <label for="idCompanhia">ID da companhia</label>
+                    <input id="idCompanhia" class="form-control" type="number" placeholder="Ex: 1" readonly>
+                </div>
+                <div class="col-md-4">
+                    <label for="codigo">Codigo</label>
+                    <input id="codigo" class="form-control" type="text" placeholder="PROMO20" readonly>
+                </div>
+                <div class="col-md-4">
+                    <label for="desconto">Percentual de desconto</label>
+                    <input id="desconto" class="form-control" type="number" step="0.01" placeholder="20" readonly>
+                </div>
+                <div class="col-md-4">
+                    <label for="quantidade">Numero de cupons</label>
+                    <input id="quantidade" class="form-control" type="number" placeholder="100" readonly>
+                </div>
+            </div>
+            <p class="hint mt-3">Se a companhia nao existir, direcionar para cadastro de companhia.</p>
+        </section>
+
+        <section class="card-panel">
+            <div class="action-links">
+                <a href="companhia-cadastrar.html">Cadastrar nova companhia</a>
+                <a href="cupom-listar.html">Ver lista de cupons</a>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

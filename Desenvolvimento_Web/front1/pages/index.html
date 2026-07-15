@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta Publica</title>
+    <link rel="stylesheet" href="../public/css/app.css">
+</head>
+<body>
+    <main>
+        <header>
+            <h1>Consulta publica de cupons e trechos</h1>
+            <p>Viaje hoje com as melhores vantagens da internet!</p>
+            <a href="admin-login.html">Login admin</a>
+        </header>
+
+        <section>
+            <h2>Filtros de consulta</h2>
+            <div>
+                <div>
+                    <label for="companhia">Companhia</label>
+                    <select id="companhia">
+                        <option>Todas</option>
+                        <option>Aero Sul</option>
+                        <option>Voa Norte</option>
+                        <option>Litoral Air</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="origem">Origem</label>
+                    <input id="origem" type="text" placeholder="Porto Alegre" readonly>
+                </div>
+                <div>
+                    <label for="destino">Destino</label>
+                    <input id="destino" type="text" placeholder="Curitiba" readonly>
+                </div>
+                <div>
+                    <label for="preco">Limite de preco</label>
+                    <input id="preco" type="number" placeholder="500" readonly>
+                </div>
+            </div>
+            <p>Trecho sera inferido pela combinacao de origem e destino nas proximas etapas.</p>
+            <div>
+                <button type="button">Pesquisar</button>
+            </div>
+        </section>
+
+        <section>
+            <h2>Resultados (exemplo)</h2>
+            <div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Companhia</th>
+                            <th>Website</th>
+                            <th>Trecho</th>
+                            <th>Origem</th>
+                            <th>Destino</th>
+                            <th>Preco</th>
+                            <th>TEM CUPOM?</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Aero Sul</td>
+                            <td><a href="https://www.aerosul.com.br" target="_blank" rel="noopener noreferrer">aerosul.com.br</a></td>
+                            <td>POA-CWB</td>
+                            <td>Porto Alegre</td>
+                            <td>Curitiba</td>
+                            <td>R$ 320,00</td>
+                            <td>
+                                <details>
+                                    <summary>SIM 👍</summary>
+                                    <div>
+                                        <strong>Cupons da Aero Sul</strong>
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                    <th>Codigo</th>
+                                                    <th>Desconto</th>
+                                                    <th>Quantidade</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>PROMO20</td>
+                                                    <td>20%</td>
+                                                    <td>25</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>VERAO15</td>
+                                                    <td>15%</td>
+                                                    <td>12</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </details>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Voa Norte</td>
+                            <td><a href="https://www.voanorte.com.br" target="_blank" rel="noopener noreferrer">voanorte.com.br</a></td>
+                            <td>REC-SSA</td>
+                            <td>Recife</td>
+                            <td>Salvador</td>
+                            <td>R$ 280,00</td>
+                            <td>
+                                <details>
+                                    <summary>SIM 👍</summary>
+                                    <div>
+                                        <strong>Cupons da Voa Norte</strong>
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                    <th>Codigo</th>
+                                                    <th>Desconto</th>
+                                                    <th>Quantidade</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>FERIAS10</td>
+                                                    <td>10%</td>
+                                                    <td>40</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>NORTE5</td>
+                                                    <td>5%</td>
+                                                    <td>30</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </details>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Litoral Air</td>
+                            <td><a href="https://www.litoralair.com.br" target="_blank" rel="noopener noreferrer">litoralair.com.br</a></td>
+                            <td>FLN-POA</td>
+                            <td>Florianopolis</td>
+                            <td>Porto Alegre</td>
+                            <td>R$ 260,00</td>
+                            <td><span>NAO ☹️</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

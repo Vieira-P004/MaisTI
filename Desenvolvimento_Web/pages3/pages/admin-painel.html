@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel Administrativo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../public/css/app.css">
+</head>
+<body class="admin-panel-theme">
+    <main class="page-wrap">
+        <header class="hero">
+            <h1>Painel administrativo</h1>
+            <p>Escolha uma entidade para listar itens e acessar as ações de adicionar, editar e excluir.</p>
+            <a class="hero-corner-link" href="index.html">Logout</a>
+        </header>
+
+        <section class="card-panel admin-only">
+            <span class="pill pill-admin">Acesso administrativo</span>
+            <h2>Gerenciamento por entidade</h2>
+            <p>Use os botões abaixo para abrir a listagem e as ações de cada entidade.</p>
+            <div class="admin-hub-grid">
+                <a class="admin-hub-btn" href="trecho-listar.html">
+                    <i class="bi bi-signpost-split"></i>
+                    <span>Trechos</span>
+                </a>
+                <a class="admin-hub-btn" href="cupom-listar.html">
+                    <i class="bi bi-ticket-perforated"></i>
+                    <span>Cupons</span>
+                </a>
+                <a class="admin-hub-btn" href="companhia-listar.html">
+                    <i class="bi bi-buildings"></i>
+                    <span>Companhias</span>
+                </a>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

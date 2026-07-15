@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Administrativo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../public/css/app.css">
+</head>
+<body class="admin-panel-theme">
+    <main class="page-wrap">
+        <header class="hero">
+            <h1>Login da area administrativa</h1>
+            <p>Acesso restrito a administradores e parceiros de divulgação.</p>
+        </header>
+
+        <section class="card-panel login-card form-shell">
+            <span class="pill pill-admin">Restrito</span>
+            <h2>Entrar como administrador</h2>
+            <div class="row">
+                <div class="col-12">
+                    <label for="usuario">Usuario</label>
+                    <input id="usuario" class="form-control" type="text" value="admin" readonly>
+                </div>
+                <div class="col-12">
+                    <label for="senha">Senha</label>
+                    <input id="senha" class="form-control" type="password" value="abc123" readonly>
+                </div>
+            </div>
+            <p class="hint mt-3">Nesta fase o login ainda não valida dados. O botão abaixo apenas simula entrada para o painel.</p>
+            <div class="action-links">
+                <a href="admin-painel.html">Entrar</a>
+                <a href="index.html">Cancelar</a>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

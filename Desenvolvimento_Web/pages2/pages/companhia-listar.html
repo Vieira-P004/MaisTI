@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Companhias</title>
+    <link rel="stylesheet" href="../public/css/app.css">
+</head>
+<body class="admin-panel-theme">
+    <main class="page-wrap">
+        <header class="hero">
+            <h1>Companhias cadastradas</h1>
+            <p>Lista administrativa de companhias com acoes de manutencao.</p>
+            <a class="hero-corner-link" href="index.html">Logout</a>
+        </header>
+
+        <nav class="admin-top-menu" aria-label="Menu superior da listagem">
+            <a href="admin-painel.html">Voltar ao menu</a>
+            <a href="companhia-cadastrar.html">Adicionar companhia</a>
+        </nav>
+
+        <section class="card-panel">
+            <div class="entity-list">
+                <article class="entity-row">
+                    <div class="entity-main">
+                        <div class="entity-title">Aero Sul</div>
+                        <div class="entity-meta">Fundacao: 1998 | Site: aerosul.com.br</div>
+                    </div>
+                    <div class="entity-actions">
+                        <a class="icon-action icon-action-edit" href="companhia-editar.html" title="Editar companhia" aria-label="Editar companhia"></a>
+                        <a class="icon-action icon-action-delete" href="companhia-ecluir.html" title="Excluir companhia" aria-label="Excluir companhia"></a>
+                    </div>
+                </article>
+
+                <article class="entity-row">
+                    <div class="entity-main">
+                        <div class="entity-title">Voa Norte</div>
+                        <div class="entity-meta">Fundacao: 2004 | Site: voanorte.com.br</div>
+                    </div>
+                    <div class="entity-actions">
+                        <a class="icon-action icon-action-edit" href="companhia-editar.html" title="Editar companhia" aria-label="Editar companhia"></a>
+                        <a class="icon-action icon-action-delete" href="companhia-ecluir.html" title="Excluir companhia" aria-label="Excluir companhia"></a>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
